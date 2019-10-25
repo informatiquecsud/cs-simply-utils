@@ -1,6 +1,6 @@
 from random import shuffle
 
-from utils import frequency_analysis, substitute, get_reversed_dict, alphabet
+from utils import frequency_analysis
 
 
 class CaesarCypher:
