@@ -52,3 +52,20 @@ def alphabet():
 def show_dict_sorted(_dict):
     for key, values in sorted(_dict.items(), key=lambda x: x[1], reverse=True):
         print(key, values)
+
+
+def test_frequency_analysis():
+    messages = '''
+    APPRENEZACOMPRENDRE
+    ELIERAMASSEMESFLEURS
+    CENESTPASMATASSEDETHE
+    '''
+
+    for m in [x.strip() for x in messages.split('\n')]:
+        print(m)
+        show_dict_sorted(frequency_analysis(m))
+        print("========")
+
+
+if __name__ == "__main__":
+    test_frequency_analysis()

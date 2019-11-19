@@ -85,10 +85,14 @@ if __name__ == '__main__':
 
     square_french_reversed = get_reverse_square(square_fr)
     cypher_fr_reversed = PolybiusCypher(square_french_reversed)
-    print(cypher_fr_reversed.encrypt('LECOURSCOMMENCEAHUITHEURES'))
+    print('exo 2', cypher_fr_reversed.encrypt('LECOURSCOMMENCEAHUITHEURES'))
 
 
 message = 'WEUIEALEUXIIMVSNENSKY'
 for i in range(26):
     print(''.join(chr((ord(c) - ord('A') + i) % 26 + ord('A'))
                   for c in message))
+
+print(PolybiusCypher(square_fr).encrypt('POLYBE'))
+print(PolybiusCypher(square_fr).decrypt(
+    '311132154334353444113224152145443115121542131511451415311513422444454215'))

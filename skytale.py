@@ -51,4 +51,4 @@ if __name__ == "__main__":
     print(skytale10.decrypt('ASESQPREIETHSAUAPDSSRENTORRELTOUOTNSIPOSIRUASUSUUA'))
     skytale3 = SkytaleCypher(diameter=3)
     print(skytale3.decrypt('SWSPACARHREITNEASDUELNHIDRCAUHTNUHTVEEXNRY'))
-    print(skytale3.encrypt('SPARTEETATHENESETAIENTDESCITESTRESDIFFERENTES'))
+    print(skytale3.encrypt('SPARTEETATHENESETAIENTTRESDIFFERENTES'))

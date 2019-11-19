@@ -1,6 +1,6 @@
 from random import shuffle
 
-from utils import frequency_analysis
+from utils import frequency_analysis, substitute, get_reversed_dict
 
 
 class CaesarCypher:
@@ -91,3 +91,8 @@ XFPUNDPTNJEJ KYJHFJM TDAA
         'T': 'F',
     }))
     print(message)
+
+    message = 'ELIERAMASSEMESFLEURS'
+    print(message, "=>", CaesarCypher(-2).encrypt(message))
+    message = 'CENESTPASMATASSEDETHE'
+    print(message, "=>", CaesarCypher(23).encrypt(message))
