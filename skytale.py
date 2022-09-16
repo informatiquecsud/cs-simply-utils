@@ -1,5 +1,6 @@
 
 from random import choice
+from utils import *
 
 
 class SkytaleCypher:
@@ -11,6 +12,13 @@ class SkytaleCypher:
     def alphabet():
         start_letter = ord('A')
         return ''.join([chr(start_letter + i) for i in range(26)])
+    
+    def show_table(self, message):
+        for i, char in enumerate(message):
+            if i % self.diameter == 0:
+                print()
+            print(char + '\t', end="")
+            
 
     def encrypt(self, message):
         encrpyted = ''
@@ -52,3 +60,13 @@ if __name__ == "__main__":
     skytale3 = SkytaleCypher(diameter=3)
     print(skytale3.decrypt('SWSPACARHREITNEASDUELNHIDRCAUHTNUHTVEEXNRY'))
     print(skytale3.encrypt('SPARTEETATHENESETAIENTTRESDIFFERENTES'))
+    skytale4 = SkytaleCypher(diameter=4)
+    print(skytale4.encrypt('MAINTENANTSOYONSMALINES'))
+    print(skytale4.encrypt('JEMAPPELLEALEX'))
+    print(skytale4.decrypt('JPLEEPEXMEAXALLA'))
+    print(skytale4.decrypt(''.join(list(reversed('LSIHLUYNAFBIBTBESSOM')))))
+    print(skytale4.encrypt(''.join(list(reversed('MEINHOBBYISTFUSSBALL')))))
+    print(skytale4.encrypt(''.join(list(reversed('MONHOBBYESTLEFOOT')))))
+    print(skytale4.encrypt(''.join(list(reversed('MONHOBBYESTLEFOOT')))))
+    message = 'LAJEUNESSEAUNJOLIVISAGEMAISLAGEAUNEBELLEAMEXYZAB'
+    print(SkytaleCypher(diameter=8).show_table(message))

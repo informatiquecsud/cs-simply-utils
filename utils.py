@@ -1,3 +1,5 @@
+from random import choice
+
 def shift_char(char, shift):
     return chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
 
@@ -65,7 +67,37 @@ def test_frequency_analysis():
         print(m)
         show_dict_sorted(frequency_analysis(m))
         print("========")
+        
+def chunk(message, block_len):
+    blocks = []
+    
+    for (i, char) in enumerate(message):
+        if i % 6 == 0:
+            current_block = ''
+        current_block += char
+        if i % 6 == 5 or i == len(message) - 1:
+            blocks.append(current_block)
+            
+    # complete last block with random chars
+    if len(blocks[-1]) < block_len:
+        additional_chars = ''.join([choice(message) for _ in range(block_len - len(blocks[-1]))])
+        blocks[-1] = blocks[-1] + additional_chars
+        
+    return blocks
+
+def replace_many(message, substitutions=None):
+    DEFAULT_SUBSTITUTIONS = {' ': '', ',': '', '.': '', ';': '', ':':'', 'é': 'e', 'è': 'e', 'à': 'a', 'ê':'e', 'ä': 'a', "'":'', 'â': 'a'}
+    substitutions = substitutions or DEFAULT_SUBSTITUTIONS
+    result = ''
+    for c in message.lower():
+        result += c if c not in substitutions else substitutions[c]
+    return result
+    
+
+def to_message(message):
+    return replace_many(message).upper()
 
 
 if __name__ == "__main__":
     test_frequency_analysis()
+    print(chunk(to_message('juste pour rire, tu ne pourrais pas te faire un café'), 6))

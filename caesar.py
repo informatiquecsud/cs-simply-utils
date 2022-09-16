@@ -96,3 +96,72 @@ XFPUNDPTNJEJ KYJHFJM TDAA
     print(message, "=>", CaesarCypher(-2).encrypt(message))
     message = 'CENESTPASMATASSEDETHE'
     print(message, "=>", CaesarCypher(23).encrypt(message))
+
+    caesar1 = CaesarCypher(shift=1)
+    print(caesar1.encrypt('NULNAPPRENDSANSFAIREDESERREURS'))
+
+    message = 'OVMOBQQSFOETBOTGBJSFEFTFSSFVST'
+    partial = substitute(message, get_reversed_dict({
+        'N': 'O', 'P': 'Q', 'E': 'F', 'R': 'S', 'U': 'V', 'S': 'T',
+    }))
+    partial = partial.replace('_', '-')
+    print(partial)
+    print(CaesarCypher(3).encrypt('LENNEMIQUIDECOUVREVOSERREURS'))
+    print(CaesarCypher(7).encrypt('ESTPOURVOUSPLUSUTILEQUUNAMI'))
+    print(CaesarCypher(20).encrypt('QUIVOUSLESCACHELEONARDDEVINCI'))
+    print(CaesarCypher(2).encrypt('SEULSLESCOURAGEUXGAGNENT'))
+
+    print(CaesarCypher(22).encrypt('CITELESNOMSDENEUFCAMARADESDECLASSE'))
+    print(CaesarCypher(22).encrypt('SEA'))
+
+    print(frequency_analysis('TOUTLEMONDEDEVRAITSAVOIRLIREETECRIRE', 2))
+
+    for key in range(1, 26):
+        print("key", key)
+        print(CaesarCypher(key).decrypt(
+            'GUUCAGGPEQTGGEJQWGFGPQWXGCWGEJQWGOKGWZ'))
+
+    print(frequency_analysis('VASSURTONCHEMINCARCELUICINEXISTEQUEPARTESPAS '))
+
+    print(substitute('VASSURTONCHEMINCARCELUICINEXISTEQUEPARTESPAS', {
+        'B': 'C',
+        'C': 'B',
+        'K': 'L',
+        'L': 'K',
+        'T': 'U',
+        'U': 'T',
+    }))
+
+    print(frequency_analysis('TOUSLESCHEMINSMENENTAROME'))
+    print(CaesarCypher(3).decrypt('WRXVOHVFKHPLQVPHQHQWDURPH'))
+
+    print('Lösungen finden 5/6, exercice 2.9')
+    print(CaesarCypher(1).encrypt('CENESTPASPARCEQUUNPROBLEME'))
+    print(CaesarCypher(3).encrypt('NAPASETERESOLUQUILEST'))
+    print(CaesarCypher(6).encrypt('IMPOSSIBLEARESOUDRE'))
+    print(CaesarCypher(6).decrypt('OSVUYYOHRKGXKYUAJXK'))
+
+    print("Exercice 2.10")
+    print(CaesarCypher(ord('O') - ord('S')
+                       ).decrypt('YEPAHAOJKIOZAJAQBYWIWNWZAOZAYHWOOA'))
+
+    print("Enigme page 26")
+    print(CaesarCypher(7).decrypt('AVBASLTVUKLKLCYHPAZHCVPYSPYLLALJYPYL'))
+
+    print(CaesarCypher(16).encrypt('PLUSONDESIREUNECHOSEPLUSELLESEFAITATTENDRE'))
+    print(CaesarCypher(3).encrypt('TOUSLESCHEMINSMENENTAROME'))
+    print(CaesarCypher(3).encrypt('CESARETAITMALIN'))
+    print(CaesarCypher(4).encrypt(
+        'ILVAUTMIEUXSEDISPUTERAVECQUELQUUNDINTELLIGENTQUEPARLERAUNIMBECILE'))
+    print(frequency_analysis(
+        'ILVAUTMIEUXSEDISPUTERAVECQUELQUUNDINTELLIGENTQUEPARLERAUNIMBECILE'))
+    print(CaesarCypher(2).encrypt('SEULSLESCOURAGEUXGAGNENT'))
+    print(CaesarCypher(3).encrypt('CESARETAITMALIN'))  # => FHVDUHWDLWPDOLQ
+    print(CaesarCypher(3).encrypt('LENNEMIQUIDECOUVREVOSERREURS'))  # =>
+    print(CaesarCypher(7).encrypt('ESTPOURVOUSPLUSUTILEQUUNAMI'))  # =>
+    print(CaesarCypher(20).encrypt('QUIVOUSLESCACHELEONARDDEVINCI'))  # =>
+    print(CaesarCypher(2).decrypt('UGWNUNGUEQWTCIGWZICIPGPV'))  # =>
+    print(CaesarCypher(1).decrypt('DFOFTUQBTQBSDFRVVOQSPCMFNF'))  # =>
+    print(CaesarCypher(3).decrypt('QDSDVHWHUHVROXTXLOHVW'))  # =>
+    print(CaesarCypher(6).decrypt('OSVUYYOHRKGXKYUAJXK'))  # =>
+    print(CaesarCypher(22).decrypt('YEPAHAOJKIOZAJAQBYWIWNWZAOZAYHWOOA'))  # =>

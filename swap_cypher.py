@@ -31,14 +31,22 @@ def test():
     message = "PEUTONSEVOIRATREIZEHEURES"
     message = "OKNEENWNRINUUSNMUETNERFFNE"
     message = "IDTEXEETNIMEIASLISDNIWOEFFNEBEIRFEE"
-    def cypherNils(i): return i + (-1) ** i
-    cyphered = SwapCypher(cypherNils).encrypt(message)
+    message = "UNCOURRIELESTCOMMEUNELETTREOUVERTE"
+    def nils_swap(i): return i + (-1) ** i
+    cyphered = SwapCypher(nils_swap).encrypt(message)
     print(message, "=>", cyphered)
 
     message = "OUIRENDEZVOUSAUKIOSK"
     message = "KSOIKTKNUPFFERTAJ"
-    def cypherMia(i): return -i - 1
-    cyphered = SwapCypher(cypherMia).encrypt(message)
+    def mia_swap(i): return -i - 1
+    cyphered = SwapCypher(mia_swap).encrypt(message)
+    print(message, "=>", cyphered)
+
+    message = "HCSIERDEBNIEAPEWSSREORETEINCNUFIHIRFTREFUA"
+    message = "NECRISJAMAISTESMOTSDEPASSEENCLAIR"
+    message = "ABCDEF"
+    def tim_swap(i): return (i + 2 if (i % 3 == 0) else i)
+    cyphered = SwapCypher(tim_swap).encrypt(message)
     print(message, "=>", cyphered)
 
 
